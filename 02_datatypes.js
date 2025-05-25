@@ -3,7 +3,13 @@ meaning data types are associated with values at runtime rather than being expli
 When a value is assigned to a variable, the JavaScript engine infers the data type based on the value's form and characteristics. 
 This contrasts with statically-typed languages where data types are explicitly declared. */
 
-//1. primitive data types :
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+/*1. primitive data types : ( based on how data is stored and accessed in memeory ) - 7 types
+                            - data stored in stack
+                            - call by value, aother copy is created and assigned value
+*/
+                            
 
 let userName = "Khushi" //String data type
 console.log(typeof(userName))
@@ -21,10 +27,22 @@ let address; //undefined data type - value not assigned
 console.log(typeof(address))
 
 //symbol data type - uniqueness
+const uid = Symbol('123')
+const uid2 = Symbol('123')
+console.log(uid == uid2)
 
-//2. object data type
+/*------------------------------------------------------------------------------------------------------------------------*/
 
-let person = {"name": "khushi", age:18}
+/*2. reference data type - non -primitive - ( array, objects, functions )
+                            - data stored in heap
+                            - reference allocated to var names ( call by reference)
+                            - copy not created, same reference passed to both objects 
+*/
+
+// object data type
+let person = {
+    name: "khushi",
+    age:18}
 console.log(person)
 console.log(typeof person)
 
@@ -32,6 +50,15 @@ console.log(typeof person)
 let studNames = ["khushi", "mansi"]
 console.log(studNames)
 console.log(typeof studNames)
+
+// function object
+
+const myfunc = ()=>{
+    console.log("funtion");
+}
+myfunc();
+
+/*------------------------------------------------------------------------------------------------------------------------*/
 
 //3. conversion of data types - all types to number
 
