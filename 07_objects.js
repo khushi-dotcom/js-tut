@@ -66,17 +66,17 @@ console.log(obj4)
 
 const ob5 = [
     {
-        id:1,
-        name:"Khusi"
+        id: 1,
+        name: "Khusi"
     },
     {
-        id:2,
-        name:"Khusi"
+        id: 2,
+        name: "Khusi"
     },
     {
-        id:3,
-        name:"Khusi"
-    
+        id: 3,
+        name: "Khusi"
+
     },
 ]
 console.log(Object.keys(ob5)) // since as array
@@ -86,4 +86,27 @@ console.log(Object.values(ob5))
 console.log(Object.entries(user)) //convets to array type , first arr-> key, second arr val --> value of og object
 
 console.log(user.hasOwnProperty('uid'))  // hasOwnProprerty checks if property present in obect
- 
+
+// destructuring an object :
+
+const course = {
+    c_name: "C++",
+    price: 300,
+    i_name: "J.c.Chhabra"
+}
+console.log(course.c_name) // normal access but for repeated, we can do it by destructuring object
+const { c_name: ins } = course // from course object, extract c_name and use ins as alias
+console.log(ins)
+
+// example of destructuring in react : 
+// const navbar = (props)=>{ // here using props.company as in normal
+//     console.log(`using props in react to get val ${props.company}`)
+// }
+const navbar = ({company:cmp})=>{ //instead of using props.company --> we are using {} to destructure object
+    console.log(`using props in react to get val ${cmp}`)
+}
+
+
+navbar({company : "Google"})
+
+// use random user me api and json formatter for making it readable
