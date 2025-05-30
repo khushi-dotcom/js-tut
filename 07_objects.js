@@ -18,7 +18,7 @@ console.log(user[mysym]) //symbols are accessed like this
 user.uid = 345           //new keys added to object
 
 
-user.greetings = () => {   //functions addde to objects 
+user.greetings = () => {   //functions addded to objects 
     console.log("Hello")
 }
 console.log(user.greetings)
