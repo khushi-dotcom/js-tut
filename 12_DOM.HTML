@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .bg-black {
+            background-color: rgb(1, 16, 18);
+            color: azure;
+        }
+
+        #heading {
+            color: rgb(178, 240, 240);
+        }
+
+        .heading2 {
+            color: rgb(231, 231, 161);
+            background-color: blueviolet;
+        }
+    </style>
 </head>
-<body>
-    <h1> DOM learning </h1>
-    <p>lorem</p>
-    
+
+<body class="bg-black">
+    <div>
+        <!-- <h1 id="heading"> DOM learning <span> test text</span> </h1> -->
+        <h1 id="heading"> DOM learning <span style="display: none;"> test text</span> </h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+
 </body>
+
 </html>
 
 <!-- In browser, 
@@ -19,4 +40,22 @@
  console.log(document.baseURI)
  console.log(document.links) = gives links as HTMLCollection, can be accessed like an array
  document.getElementById('id_in_page')
- document.getElementById("#id").innerHTML = "<h1>Some Text</h1>"-->
+ document.getElementById("#id").innerHTML = "<h1>Some Text</h1>
+ document.getElementById('id_name).id
+ document.getElementById('id_name).className
+ document.getElementById('id_name).getAttribute('id') or ('class')
+ document.getElementById('heading').setAttribute('class','heading2')
+ document.getElementById('heading').setAttribute('class','heading2')
+ const heading = document.getElementById('heading')
+ heading [ op : <h1 id=​"heading" class=​"heading2">​ DOM learning ​</h1>​ ]
+ heading.style.backgroundColor='white'
+ heading.textContent [ op : ' DOM learning ']
+ heading.textContent = 'DOM learning today'
+ heading.innerText [ op :' DOM learning today' ]
+ -->
+
+<!-- 
+const heading = document.getElementById('heading') [ undefined ]
+heading [ <h1 id=​"heading">​…​</h1>​ ]
+heading.innerText [ 'DOM learning' ]
+heading.textContent [ ' DOM learning  test text ' ] // difference between innerText and textContent-->
