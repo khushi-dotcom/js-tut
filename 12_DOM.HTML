@@ -19,6 +19,13 @@
             color: rgb(231, 231, 161);
             background-color: blueviolet;
         }
+
+        .form {
+            background-color: aquamarine;
+            padding-block: 1%;
+            align-self: center;
+            color: black;
+        }
     </style>
 </head>
 
@@ -27,6 +34,26 @@
         <!-- <h1 id="heading"> DOM learning <span> test text</span> </h1> -->
         <h1 id="heading"> DOM learning <span style="display: none;"> test text</span> </h1>
         <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, nam.</p>
+        <p>Lorem ipsum dolor sit amet. Lorem, ipsum.</p>
+        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur.</p>
+        <div class="form">
+            <!-- .form emmet -->
+            <label for="name1">Name : </label>
+            <input type="text" name="name" id="name1">
+            <!-- input:name emmet  and label emmet-->
+            <label for="pass1">Password : </label>
+            <input type="password" name="password" id="pass1">
+
+
+        </div>
+        <!-- ul>li*3 emmet -->
+        <ul>
+            <li class="list-item">item 1</li>
+            <li class="list-item">item 2</li>
+            <li class="list-item">item 3</li>
+        </ul>
+
     </div>
 
 </body>
@@ -58,4 +85,44 @@
 const heading = document.getElementById('heading') [ undefined ]
 heading [ <h1 id=​"heading">​…​</h1>​ ]
 heading.innerText [ 'DOM learning' ]
-heading.textContent [ ' DOM learning  test text ' ] // difference between innerText and textContent-->
+heading.textContent [ ' DOM learning  test text ' ] // difference between innerText and textContent is that textContent shows all hidden elements
+heading.innerHTML [' DOM learning <span style="display: none;"> test text</span> ]'-->
+
+<!-- query selector :
+document.querySelector('h1') - shows first h1 [ <h1 id=​"heading">​…​</h1>​" DOM learning "<span style=​"display:​ none;​">​ test text​</span>​</h1>​ ]
+document.querySelector('p') [ <p>​Lorem ipsum dolor sit amet.​</p>​ ]
+document.querySelector('span') [ <span style=​"display:​ none;​">​ test text​</span>  ]
+document.querySelector('.bg-black') [ <body class=​"bg-black">​…​</body >​​ ] 
+document.querySelector('#heading') [ <h1 id=​"heading">​" DOM learning "<span style=​"display:​ none;​">​ test text​</span>​</h1>​ ]
+document.querySelector('input[type="password"]') [ <input type=​"password" name=​"password" id=​"pass1"> ​] 
+
+document.querySelector('ul') [ <ul>​…​</ul>​ ]
+document.querySelector('ul').children[0] [ <li>​::marker​"item 1"</li>​ ]
+const item1 = document.querySelector('ul').children[0] [ undefined ]
+item1.innerText [ 'item 1' ]
+item1.style.color="green" [ 'green' ]
+item1.style.padding = '10px' [ '10px' ]-->
+
+<!-- query selector all : - shows all p as NodeList
+document.querySelectorAll('p') [ NodeList(4) [p, p, p, p]0: p1: paccessKey: ""align: ""ariaActiveDescendantElement: nullariaAtomic: nullariaAutoComplete: nullariaBrailleLabel: nullariaBrailleRoleDescription: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColIndexText: nullariaColSpan: nullariaControlsElements: nullariaCurrent: nullariaDescribedByElements: nullariaDescription: nullariaDetailsElements: nullariaDisabled: nullariaErrorMessageElements: nullariaExpanded: nullariaFlowToElements: nullariaHasPopup: nullariaHidden: nullariaInvalid: nullariaKeyShortcuts: nullariaLabel: nullariaLabelledByElements: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowIndexText: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "https://zany-space-enigma-vwqj79r67gphwgq4-5500.app.github.dev/12_DOM.HTML"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: '']className: ""clientHeight: 18clientLeft: 0clientTop: 0clientWidth: 940contentEditable: "inherit"currentCSSZoom: 1dataset: DOMStringMap {}dir: ""draggable: falseeditContext: nullelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""inert: falseinnerHTML: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, nam."innerText: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, nam."inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "p"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: pnextSibling: textnodeName: "P"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 18offsetLeft: 8offsetParent: body.bg-blackoffsetTop: 115offsetWidth: 940onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforeinput: nullonbeforematch: nullonbeforepaste: nullonbeforetoggle: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncommand: nulloncontentvisibilityautostatechange: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonscrollend: nullonscrollsnapchange: nullonscrollsnapchanging: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, nam.</p>"outerText: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, nam."ownerDocument: documentparentElement: divparentNode: divpart: DOMTokenList [value: '']popover: nullprefix: nullpreviousElementSibling: ppreviousSibling: textrole: nullscrollHeight: 18scrollLeft: 0scrollTop: 0scrollWidth: 940shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "P"textContent: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, nam."title: ""translate: truevirtualKeyboardPolicy: ""writingSuggestions: "true"[[Prototype]]: HTMLParagraphElement(...)2: p3: plength: 4[[Prototype]]: NodeList
+document.querySelectorAll('p')[0] [ <p>​Lorem ipsum dolor sit amet.​</p>​ ]
+document.querySelectorAll('p')[1] [ <p>​"Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, nam."</p> ]​ 
+const list = document.querySelectorAll('li') [ undefined ]
+list [ NodeList(3) [li, li, li] ]
+list.forEach((l)=>{
+    l.style.color='green';
+    l.style.padding = '10px'
+    }) // in this all items colored green
+-->
+
+<!-- 
+const list = document.querySelectorAll('.list-item') [ undefined ]
+list - gives NodeList [ NodeList(3) [li.list-item, li.list-item, li.list-item]0: li.list-item1: li.list-item2: li.list-itemlength: 3[[Prototype]]: NodeListentries: ƒ entries()forEach: ƒ forEach()item: ƒ item()keys: ƒ keys()length: (...)values: ƒ values()constructor: ƒ NodeList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "NodeList"get length: ƒ length()[[Prototype]]: Object
+const list2 = document.getElementsByClassName('list-item') [ undefined ]
+list2 - gives HTMLCollection [ HTMLCollection(3) [li.list-item, li.list-item, li.list-item]0: li.list-itemaccessKey: ""ariaActiveDescendantElement: nullariaAtomic: nullariaAutoComplete: nullariaBrailleLabel: nullariaBrailleRoleDescription: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColIndexText: nullariaColSpan: nullariaControlsElements: nullariaCurrent: nullariaDescribedByElements: nullariaDescription: nullariaDetailsElements: nullariaDisabled: nullariaErrorMessageElements: nullariaExpanded: nullariaFlowToElements: nullariaHasPopup: nullariaHidden: nullariaInvalid: nullariaKeyShortcuts: nullariaLabel: nullariaLabelledByElements: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowIndexText: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {0: class, class: class, length: 1}autocapitalize: ""autofocus: falsebaseURI: "https://zany-space-enigma-vwqj79r67gphwgq4-5500.app.github.dev/12_DOM.HTML"childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList ['list-item', value: 'list-item']className: "list-item"clientHeight: 18clientLeft: 0clientTop: 0clientWidth: 900contentEditable: "inherit"currentCSSZoom: 1dataset: DOMStringMap {}dir: ""draggable: falseeditContext: nullelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhidden: falseid: ""inert: falseinnerHTML: "item 1"innerText: "item 1"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "li"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: li.list-itemnextSibling: textnodeName: "LI"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 18offsetLeft: 48offsetParent: body.bg-blackoffsetTop: 274offsetWidth: 900onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforeinput: nullonbeforematch: nullonbeforepaste: nullonbeforetoggle: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncommand: nulloncontentvisibilityautostatechange: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonscrollend: nullonscrollsnapchange: nullonscrollsnapchanging: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<li class=\"list-item\">item 1</li>"outerText: "item 1"ownerDocument: documentparentElement: ulparentNode: ulpart: DOMTokenList [value: '']popover: nullprefix: nullpreviousElementSibling: nullpreviousSibling: textrole: nullscrollHeight: 18scrollLeft: 0scrollTop: 0scrollWidth: 900shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "LI"textContent: "item 1"title: ""translate: truetype: ""value: 0virtualKeyboardPolicy: ""writingSuggestions: "true"[[Prototype]]: HTMLLIElement(...)1: li.list-item2: li.list-itemlength: 3[[Prototype]]: HTMLCollectionitem: ƒ item()length: (...)namedItem: ƒ namedItem()constructor: ƒ HTMLCollection()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "HTMLCollection"get length: ƒ length()[[Prototype]]: Object
+ 
+both can be converted to array and array properties can be used as :
+const listarr = Array.from(list) or Array.from(list2)-->
+
+<!-- *** VVI :
+ https://www.w3schools.com/js/js_htmldom_nodelist.asp#:~:text=An%20HTMLCollection%20is%20a%20collection,accessed%20by%20their%20index%20number. -->
