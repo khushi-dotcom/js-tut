@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: aliceblue
+        }
+    </style>
+</head>
+
+<body>
+    <div class="week">
+        <!-- adding comment here to check for childNodes of week parent -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    <ul class="language">
+        <li>Hindi</li>
+        <li>Englist</li>
+    </ul>
+
+</body>
+<script>
+    const parent = document.querySelector('.week')
+    const children = parent.children
+    console.log(children)
+    console.log(children[0])
+    console.log(children[0].textContent)
+    for (let i = 0; i < children.length; i++) {
+        console.log(children[i].innerHTML)
+    }
+    console.log(parent.firstElementChild)
+    console.log(parent.lastElementChild)
+
+    const childdayone = document.querySelector('.day') //shows monday
+    const parentweek = childdayone.parentElement
+    console.log(parentweek)
+    console.log(childdayone.nextSibling) // as node shows text node
+    console.log(childdayone.nextElementSibling) //shows tuesday
+
+    console.log("NODES :", parent.childNodes) // each enter is counted as text element  -- initaially 9 but after adding a comment after week div, changes to 11
+    //NodeList(11) [text, comment, text, div.day, text, div.day, text, div.day, text, div.day, text]
+
+    console.log(document.childNodes[1].childNodes[3])
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //To create a new element in DOM:
+    const div = document.createElement('div')
+    div.className = "class1"
+    div.style.backgroundColor = "green"
+    div.setAttribute('name', 'newElement')
+    console.log(div)
+    // div.innerHTML = "Text to be inserted in div"
+    const textNode = document.createTextNode('Text to be inserted in div')
+    div.appendChild(textNode)
+    console.log(div.childNodes)
+    document.body.appendChild(div)
+    const div2 = document.createElement('div')
+    div2.innerHTML = "Text 2 to be inserted in doc"
+    document.childNodes[1].childNodes[3].appendChild(div2)
+
+    const elementcreator = (elementype, classname, text, style) => {
+        const element = document.createElement(elementype)
+        element.setAttribute('class', classname)
+        const textnode2 = document.createTextNode(text)
+        element.appendChild(textnode2)
+        
+        for (const key in style) {
+            element.style[key] = style[key]
+        }
+        document.body.appendChild(element)
+        console.log(element)
+        return element
+    }
+
+    elementcreator('p', "classpara", "this is paragraph to be inserted through func", { "background-color": "yellow" ,"color":"black"})
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //how to edit elements in DOM:
+    function addLanguage(langName) {
+        const language = document.createElement('li')
+        language.innerHTML = `${langName}`  // good practice
+        const ul = document.querySelector('ul')
+        ul.appendChild(language)
+    }
+    addLanguage("French")
+    addLanguage("Sanskrit")
+    function addLanguageOptimal(langName) {
+        const language = document.createElement('li')
+        language.appendChild(document.createTextNode(langName)) // optimal way, no need for 2 round trops
+        document.querySelector('.language').appendChild(language)
+    }
+    addLanguageOptimal("German")
+
+    //Edit 
+    function replaceLanguage(og_li,langName) {
+        const new_li = document.createElement('li')
+        new_li.innerHTML=langName
+        og_li.replaceWith(new_li)
+
+    }
+    const second_lang = document.querySelector("li:nth-child(2)")
+    second_lang.innerHTML="Spanish"
+    const third_lang = document.querySelector("li:nth-child(3)")
+    replaceLanguage(third_lang,"English")
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //To remove element from DOM:
+
+    const last_lang = document.querySelector(".language").lastElementChild
+    last_lang.remove()
+
+    function removeElement(parentClass, pos) {
+        const rem_lang = document.querySelector(`.${parentClass}`).children[pos]
+        rem_lang.remove()
+    }
+    removeElement("language",2)
+
+
+</script>
+
+</html>
