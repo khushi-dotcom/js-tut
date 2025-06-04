@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in js</title>
+</head>
+
+<body>
+    <div>
+        <ul class="ul">
+            <li><button type="button">BT1</button></li>
+            <li><button type="button">BT2</button></li>
+            <li><button type="button">BT3</button></li>
+        </ul>
+        <ul class="ul2">
+            <li><button type="button">BT1</button></li>
+            <li><button type="button">BT2</button></li>
+            <li><button class="bt23" type="button">BT3</button></li>
+        </ul>
+    </div>
+    <a id="id1" href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp">Website link example to be bypassed</a>
+</body>
+<script>
+    //onclick better not to inject in HTML
+    const button2 = document.querySelectorAll('li')[1]
+    button2.onclick = () => {
+        const text = button2.innerText;
+        alert(`clicked ${text}`)
+    }
+
+    // best approach using event listeners
+
+    const button3 = document.querySelectorAll('li')[2]
+    button3.addEventListener('click', function (e) {   // e --> evnet object
+        console.log('button 3 clicked')
+        console.log(e)   // in console, oprn srcEleemnt it will have all events 
+    }, false)
+
+    //type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget
+    //event propagation - event bubbling (inside to outside event propagation), event capturing ( top to bottom )
+
+    document.querySelector('.ul').addEventListener('click', (e) => {
+        console.log('ul element clicked')
+        console.log(e.target.tagName)
+        if(e.target.tagName == "BUTTON") {
+            e.target.parentNode.remove()
+        }
+    }, false) // false is default value
+    document.querySelectorAll('li')[0].addEventListener('click', () => {
+        console.log('li element clicked')
+    })  // now on clicking on bt1 we will get --> li element clicked ul element clicked  // event bubbling
+
+    document.querySelector('.ul2').addEventListener('click', () => {
+        console.log('ul element clicked')
+    }, true)
+    document.querySelectorAll('li')[3].addEventListener('click', () => {
+        console.log('li element clicked')
+    }, true)  // now on clicking on bt1 of second ul  we will get -->  ul element clicked  li element clicked // event capturing
+
+    document.querySelectorAll('li')[4].addEventListener('click', (e) => {
+        console.log('li element clicked')
+        e.stopPropagation // to not propagate further, not go to further elements // if true --> shows ul element clicked else if false --> shows li element clicked 
+    }, true)
+
+    document.querySelector('#id1').addEventListener('click', (e) => {
+        e.preventDefault()
+        console.log('Element clicked')
+
+    }, false)
+    document.querySelector('.bt23').addEventListener('click', (e) => {
+        console.log('clicked  b3')
+        console.log(e.target);
+        console.log(e.target.tagName);
+
+        console.log(e.target.parentNode);
+        e.target.parentNode.remove()
+    })
+
+</script>
+
+</html>
